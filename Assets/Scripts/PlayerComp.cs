@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerComp : MonoBehaviour
+public class PlayerComp : MonoBehaviour, IGameManagerDependency
 {
     [SerializeField]
     private float _speed;
@@ -19,13 +19,30 @@ public class PlayerComp : MonoBehaviour
         }
     }
 
+    private bool _allowMovement;
+    public bool IsAllowingMovement 
+    {
+        get 
+        {
+            return _allowMovement;
+        }
+    }
+
     public void Initialize()
     {
         _transform = GetComponent<Transform>();
+        _allowMovement = true;
+    }
+
+    public void SetAllowMovements(bool allowMovement)
+    {
+        _allowMovement = allowMovement;
     }
 	
-	void Update ()
+	void FixedUpdate ()
     {
+        if (!_allowMovement) return;
+
         float currX = _transform.position.x;
         float currY = _transform.position.y;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomCamera : MonoBehaviour
+public class CustomCamera : MonoBehaviour, IGameManagerDependency
 {
     private Camera _camera;
     private Transform _target;
