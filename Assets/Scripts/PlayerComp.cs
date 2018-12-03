@@ -53,5 +53,10 @@ public class PlayerComp : MonoBehaviour, IGameManagerDependency
         float newY = currY + (vertical * Time.deltaTime);
 
         _transform.position = new Vector3(newX, newY, _transform.position.z);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.Instance.CheckPressButtonAction(transform.position);
+        }
 	}
 }

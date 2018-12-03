@@ -1,16 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class DialoguesController : MonoBehaviour {
+public class DialoguePage 
+{
+    public string Title;
+    public string Content;
+}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class DialoguesController : MonoBehaviour
+{
+    [SerializeField]
+    private TextMeshProUGUI _title;
+
+    [SerializeField]
+    private TextMeshProUGUI _content;
+
+    public void SetTitle(string title)
+    {
+        _title.text = title;
+    }
+
+    public void SetContent(string content)
+    {
+        _content.text = content;
+    }
 }

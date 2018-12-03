@@ -18,4 +18,9 @@ public class GameEventSystem : MonoBehaviour, IGameManagerDependency
     {
         _activeActions = new Queue<GameAction>();
     }
+
+    public void NotifyEndAction()
+    {
+        _activeActions.Dequeue();
+    }
 }
