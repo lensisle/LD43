@@ -88,6 +88,8 @@ public class GameAction : MonoBehaviour
         }
     }
 
+    private EActionInitializationMode _currentMode;
+
     public void Initialize()
     {
         _isComplete = false;
@@ -108,22 +110,19 @@ public class GameAction : MonoBehaviour
         if (mode == EActionInitializationMode.Normal)
         {
             _activeLogics = new Queue<ActionLogic>(_logics);
+            _currentMode = EActionInitializationMode.Normal;
         }
         else if (mode == EActionInitializationMode.Fallback)
         {
             _activeLogics = new Queue<ActionLogic>(_fallbackLogics);
+            _currentMode = EActionInitializationMode.Fallback;
         }
         else if (mode == EActionInitializationMode.Completed)
         {
             _activeLogics = new Queue<ActionLogic>(_completedLogics);
+            _currentMode = EActionInitializationMode.Completed;
         }
 
-        CallActiveLogic();
-    }
-
-    public void StartFallbackAction()
-    {
-        _activeLogics = new Queue<ActionLogic>(_fallbackLogics);
         CallActiveLogic();
     }
 
@@ -131,7 +130,10 @@ public class GameAction : MonoBehaviour
     {
         if (_activeLogics.Count < 1) 
         {
-            if (_keepCompletedState)
+            // we set complete state if it's normal with condition or 
+            // if it's fallback type and no conditions exist
+            if ((_keepCompletedState && _currentMode == EActionInitializationMode.Normal) ||
+                (_keepCompletedState && _currentMode == EActionInitializationMode.Fallback && string.IsNullOrEmpty(_actionCondition.ID)))
             {
                 _isComplete = true;
             }

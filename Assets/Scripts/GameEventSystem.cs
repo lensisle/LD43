@@ -11,6 +11,9 @@ public class GameEventSystem : MonoBehaviour, IGameManagerDependency
     [SerializeField]
     private Tilemap _visualInteractiveTilemap;
 
+    [SerializeField]
+    private Tilemap _collisionTilemap;
+
     private List<GameAction> _actions;
     public List<GameAction> Actions
     {
@@ -182,6 +185,11 @@ public class GameEventSystem : MonoBehaviour, IGameManagerDependency
     public void SetVisualTile(Vector3Int gridPosition, TileBase newTile)
     {
         _visualInteractiveTilemap.SetTile(gridPosition, newTile);
+    }
+
+    public void RemoveTileCollision(Vector3Int gridPosition)
+    {
+        _collisionTilemap.SetTile(gridPosition, null);
     }
 
 #if UNITY_EDITOR

@@ -8,9 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3bf2e2438bc6435fafbea53cf8fdba8, type: 3}
-  m_Name: barrier-open
+  m_Script: {fileID: 11500000, guid: b15f83a45f7dc44b781c29d33d861e13, type: 3}
+  m_Name: barrier-remove
   m_EditorClassIdentifier: 
-  _pages:
-  - Title: weird voice in your head
-    Content: one problem less, let's keep going
+  _newTile: {fileID: 0}
+  _currentTilePosition: {x: 0, y: 1, z: 0}
+  _keepCollision: 0

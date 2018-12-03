@@ -8,9 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99657969e45fc499ebac2a953a35086a, type: 3}
-  m_Name: addonekey
+  m_Script: {fileID: 11500000, guid: b15f83a45f7dc44b781c29d33d861e13, type: 3}
+  m_Name: key-bottom-right-remove
   m_EditorClassIdentifier: 
-  _varID: start-open-barrier
-  _value: 1
-  _sumQuantity: 1
+  _newTile: {fileID: 0}
+  _currentTilePosition: {x: 4, y: -4, z: 0}
+  _keepCollision: 0

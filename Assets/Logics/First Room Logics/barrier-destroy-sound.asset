@@ -8,9 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99657969e45fc499ebac2a953a35086a, type: 3}
-  m_Name: addonekey
+  m_Script: {fileID: 11500000, guid: c0c0e5c9263764925b957cdf2bc52f4e, type: 3}
+  m_Name: barrier-destroy-sound
   m_EditorClassIdentifier: 
-  _varID: start-open-barrier
-  _value: 1
-  _sumQuantity: 1
+  _clip: {fileID: 8300000, guid: b7fb89bd7112b4d9e9ef96b8aeec9b36, type: 3}

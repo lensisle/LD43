@@ -12,9 +12,16 @@ public class SetTileLogic : ActionLogic
     [SerializeField]
     private Vector3Int _currentTilePosition;
 
+    [SerializeField]
+    private bool _keepCollision = true;
+
     public override void Execute()
     {
         GameManager.Instance.GameEvents.SetVisualTile(_currentTilePosition, _newTile);
+        if (!_keepCollision)
+        {
+            GameManager.Instance.GameEvents.RemoveTileCollision(_currentTilePosition);
+        }
         Finish();
     }
 
