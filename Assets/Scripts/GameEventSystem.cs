@@ -160,11 +160,18 @@ public class GameEventSystem : MonoBehaviour, IGameManagerDependency
         }
     }
 
-    public void SetVariableValue(string id, int value)
+    public void SetVariableValue(string id, int value, bool sumQuantity)
     {
         if (_variables.ContainsKey(id))
         {
-            _variables[id] = value;
+            if (sumQuantity)
+            {
+                _variables[id] += value;
+            }
+            else 
+            {
+                _variables[id] = value;
+            }
         }
         else 
         {

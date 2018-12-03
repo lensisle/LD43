@@ -11,9 +11,12 @@ public class SetVarValueLogic : ActionLogic
     [SerializeField]
     private int _value;
 
+    [SerializeField]
+    private bool _sumQuantity;
+
     public override void Execute()
     {
-        GameManager.Instance.GameEvents.SetVariableValue(_varID, _value);
+        GameManager.Instance.GameEvents.SetVariableValue(_varID, _value, _sumQuantity);
         Finish();
     }
 
