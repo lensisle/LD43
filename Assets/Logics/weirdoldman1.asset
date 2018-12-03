@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bf2e2438bc6435fafbea53cf8fdba8, type: 3}
+  m_Name: npc1
+  m_EditorClassIdentifier: 
+  _pages:
+  - Title: Weird Old Man
+    Content: sacrifice, egocentrism ...
+  - Title: Weird Old Man
+    Content: what differentiates us from what is good and what is bad
+  - Title: Weird Old Man
+    Content: in the end it's just a matter of perspective
+  - Title: Weird Old Man
+    Content: 'why are u talking to me like that... '
+  - Title: Weird Old Man
+    Content: you already know the answer ... grab the keys and keep going

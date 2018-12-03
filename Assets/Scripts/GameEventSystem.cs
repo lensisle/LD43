@@ -19,8 +19,24 @@ public class GameEventSystem : MonoBehaviour, IGameManagerDependency
         _activeActions = new Queue<GameAction>();
     }
 
+    public void AppendAction(GameAction action)
+    {
+        _activeActions.Enqueue(action);
+        CheckForActions();
+    }
+
+    private void CheckForActions()
+    {
+        if (_activeActions.Count < 1)
+        {
+            return;
+        }
+
+        _activeActions.Dequeue().StartAction();
+    }
+
     public void NotifyEndAction()
     {
-        _activeActions.Dequeue();
+        CheckForActions();
     }
 }

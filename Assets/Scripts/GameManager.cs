@@ -120,9 +120,9 @@ public class GameManager : MonoBehaviour
     {
         foreach(GameAction action in _actionsData.Actions)
         {
-            if (action.ActionTrigger == EActionTrigger.PressButton && _actionsData.checkTileAndPosition(playerPos, action.Tile))
+            if (action.ActionTrigger == EActionTrigger.PressButton && (_actionsData.GetCellPlayerPosition(playerPos) == action.TilePos))
             {
-                Debug.Log("Active action");
+                _gameEvents.AppendAction(action);
             }
         }
     }

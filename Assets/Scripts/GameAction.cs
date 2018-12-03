@@ -25,6 +25,8 @@ public class GameAction : MonoBehaviour
     [SerializeField]
     private List<ActionLogic> _logics;
 
+    private Queue<ActionLogic> _activeLogics;
+
     [SerializeField]
     private Vector3 _tilePos;
     public Vector3 TilePos
@@ -56,7 +58,22 @@ public class GameAction : MonoBehaviour
 
     public void StartAction()
     {
+        _activeLogics = new Queue<ActionLogic>(_logics);
+        CallActiveLogic();
+    }
 
+    public void CallActiveLogic() 
+    {
+        if (_activeLogics.Count < 1) 
+        {
+            Finish();
+        }
+        else 
+        {
+            ActionLogic logic = _activeLogics.Dequeue();
+            logic.PrepareLogic(CallActiveLogic);
+            logic.Execute();
+        }
     }
 
     void Finish()

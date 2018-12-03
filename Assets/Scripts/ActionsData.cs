@@ -29,18 +29,15 @@ public class ActionsData : MonoBehaviour, IGameManagerDependency
         }
     }
 
-    public bool checkTileAndPosition(Vector3 worldPositon, TileBase targetTile)
+    public Vector3Int GetCellPlayerPosition(Vector3 worldPosition)
     {
-        Vector3 localPos = _tilemap.WorldToLocal(worldPositon);
-        Vector3Int cellPos = _tilemap.LocalToCell(localPos);
-        TileBase tile = _tilemap.GetTile(cellPos);
+        Vector3 localPos = _tilemap.WorldToLocal(worldPosition);
+        return _tilemap.LocalToCell(localPos);
+    }
 
-        if (tile == null) 
-        {
-            return false;
-        }
-
-        return targetTile == tile;
+    public Vector3 GetLocalPlayerPosition(Vector3 worldPosition)
+    {
+        return _tilemap.WorldToLocal(worldPosition);
     }
 
 #if UNITY_EDITOR
@@ -60,7 +57,7 @@ public class ActionsData : MonoBehaviour, IGameManagerDependency
                 dataTile.transform.SetParent(_tilemap.transform);
                 GameAction action = dataTile.AddComponent<GameAction>();
                 dataTile.transform.position = _tilemap.CellToWorld(localPlace);
-                TileBase tile = _tilemap.GetTile(localPlace);
+                _tilemap.GetTile(localPlace);
                 action.SetTilePos(pos);
 
             }
