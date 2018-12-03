@@ -73,18 +73,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private AudioManager _audio;
+    public AudioManager Audio 
+    {
+        get 
+        {
+            return _audio;
+        }
+    }
+
 	void Start ()
     {
         _gameEvents.Initialize();
         _ui.Initialize();
         _player.Initialize();
         _camera.Initialize();
+        _audio.Initialize();
 
         _camera.FollowTarget(_player.Transform);
 
         _ui.AppendDialogue("weird voice in your head", "[SPACE] to talk");
         _ui.AppendDialogue("weird voice in your head", "reality, fiction. does it matter?");
         _ui.AppendDialogue("weird voice in your head", "everything is going to dissapear anyways.");
+
+        _audio.PlayMusic(_audio.DefaultClip, true);
     }
 	
 	void Update ()

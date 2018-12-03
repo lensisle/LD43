@@ -2,33 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, IGameManagerDependency
 {
     [SerializeField]
-    [Range(0, 1)]
-    private float _volume;
+    private AudioClip _defaultClip;
+    public AudioClip DefaultClip { get { return _defaultClip; } }
 
     [SerializeField]
-    private AudioSource _audioSource;
+    private AudioSource _musicSource;
 
-    public void Play()
+    [SerializeField]
+    private AudioSource _soundsSource;
+
+    public void Initialize()
     {
-        _audioSource.Play();
+
     }
 
-    public void Stop()
+    public void PlaySound(AudioClip clip)
     {
-        _audioSource.Stop();
+        if (_soundsSource.isPlaying)
+        {
+            _soundsSource.Stop();
+        }
+
+        _soundsSource.PlayOneShot(clip);
     }
 
-    public void SetClip(AudioClip clip)
+    public void PlayMusic(AudioClip clip, bool loop = false)
     {
-        _audioSource.clip = clip;
+        if (_musicSource.isPlaying)
+        {
+            _musicSource.Stop();
+        }
+
+        SetMusicClip(clip);
+        _musicSource.Play();
+        _musicSource.loop = loop;
+    }
+
+    public void StopMusic()
+    {
+        _musicSource.Stop();
+    }
+
+    public void SetMusicClip(AudioClip clip)
+    {
+        _musicSource.clip = clip;
     }
 	
-    public void SetVolume(float vol)
+    public void SetMusicVolume(float vol)
     {
-        _volume = vol;
-        _audioSource.volume = _volume;
+        _musicSource.volume = vol;
     }
 }

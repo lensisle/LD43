@@ -46,7 +46,10 @@ public class GameEventSystem : MonoBehaviour, IGameManagerDependency
             action.SetTile(tileBase);
             action.Initialize();
 
-            _variables.Add(action.ActionCondition.ID, 0);
+            if (string.IsNullOrEmpty(action.ActionCondition.ID) == false && action.ActionCondition.TargetVarQuantity > 0)
+            {
+                _variables.Add(action.ActionCondition.ID, 0);
+            }
         }
     }
 
