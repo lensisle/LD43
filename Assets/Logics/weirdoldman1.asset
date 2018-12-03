@@ -9,16 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3bf2e2438bc6435fafbea53cf8fdba8, type: 3}
-  m_Name: npc1
+  m_Name: weirdoldman1
   m_EditorClassIdentifier: 
   _pages:
   - Title: Weird Old Man
     Content: sacrifice, egocentrism ...
   - Title: Weird Old Man
-    Content: what differentiates us from what is good and what is bad
+    Content: good or bad // red or black
   - Title: Weird Old Man
     Content: in the end it's just a matter of perspective
   - Title: Weird Old Man
-    Content: 'why are u talking to me like that... '
+    Content: AHHHMMMMM ... i'm bored.
   - Title: Weird Old Man
-    Content: you already know the answer ... grab the keys and keep going
+    Content: 'you '
+  - Title: Weird Old Man
+    Content: YOU
+  - Title: Weird Old Man
+    Content: YOOOU
+  - Title: Weird Old Man
+    Content: already know the answer ... grab the keys and keep going

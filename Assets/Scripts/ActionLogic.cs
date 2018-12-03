@@ -6,6 +6,7 @@ using System;
 public abstract class ActionLogic : ScriptableObject
 {
     protected Action _callNext;
+    protected Vector3Int _originPosition;
 
     public void PrepareLogic(Action callNext) 
     {

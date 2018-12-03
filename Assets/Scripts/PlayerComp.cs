@@ -56,7 +56,8 @@ public class PlayerComp : MonoBehaviour, IGameManagerDependency
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameManager.Instance.CheckPressButtonAction(transform.position);
+            GameManager.Instance.CheckNearPressButtonAction(transform.position);
+            GameManager.Instance.CheckOverPress(transform.position);
         }
 	}
 }

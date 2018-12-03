@@ -73,23 +73,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private ActionsData _actionsData;
-    public ActionsData ActionsData 
-    {
-        get 
-        {
-            return _actionsData;
-        }
-    }
-
 	void Start ()
     {
         _gameEvents.Initialize();
         _ui.Initialize();
         _player.Initialize();
         _camera.Initialize();
-        _actionsData.Initialize();
 
         _camera.FollowTarget(_player.Transform);
 
@@ -116,14 +105,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CheckPressButtonAction(Vector3 playerPos)
+    public void CheckNearPressButtonAction(Vector3 playerPos)
     {
-        foreach(GameAction action in _actionsData.Actions)
-        {
-            if (action.ActionTrigger == EActionTrigger.PressButton && (_actionsData.GetCellPlayerPosition(playerPos) == action.TilePos))
-            {
-                _gameEvents.AppendAction(action);
-            }
-        }
+        _gameEvents.CheckNearPressButtonAction(playerPos);
+    }
+
+    public void CheckOverPress(Vector3 playerPos)
+    {
+        _gameEvents.CheckOverPress(playerPos);
     }
 }
